@@ -15,6 +15,7 @@
   font-size: 17px;
   line-height: 26px;
   text-transform: uppercase;
+
   box-shadow: 0 8px 6px -6px gray;
   --webkit-box-shadow: 0 8px 6px -6px gray;
   border-bottom: solid gray !important;
@@ -22,6 +23,7 @@
 
 .nav-link {
   font-weight: 300 !important;
+  margin-right: 1rem;
 }
  
 .isactive {
