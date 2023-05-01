@@ -22,7 +22,7 @@ const Header = () => {
                         <NavLink className="navbar-brand" to="/">
                             <img
                                 src={Logo}
-                                class="img-fluid"
+                                className="img-fluid"
                                 width="150"
                                 height="50"
                                 alt="..." />
