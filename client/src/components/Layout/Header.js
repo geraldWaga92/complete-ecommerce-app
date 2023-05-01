@@ -1,6 +1,5 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import { GiShoppingBag } from "react-icons/gi"
 import Logo from "../../logofinal4.png"
 
 const Header = () => {

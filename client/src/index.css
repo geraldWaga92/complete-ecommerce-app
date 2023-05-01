@@ -54,18 +54,14 @@
 .footer {
   color: white;
   padding: 25px;
-  background: #000000; /* fallback for old browsers */
-  background: -webkit-linear-gradient(
-    to right,
-    #434343,
-    #000000
-  ); /* Chrome 10-25, Safari 5.1-6 */
-  background: linear-gradient(to right, #434343, #000000);
+  background: #E86A33; /* fallback for old browsers */
+  background: linear-gradient(107deg, rgb(255, 67, 5) 11.1%, rgb(245, 135, 0) 95.3%);; /* Chrome 10-25, Safari 5.1-6 */
+  /* background: linear-gradient(to right, #434343, #000000); */
 }
 
 .footer a {
   text-decoration: none;
-  color: white;
+  color: black;
   padding: 10px;
 }
 
