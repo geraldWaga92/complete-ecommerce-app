@@ -23,10 +23,10 @@
 .nav-link {
   font-weight: 300 !important;
 }
-
-.active {
+ 
+.isactive {
   border-bottom: 2px solid black;
-}
+} 
 
 .navbar-brand {
   font-weight: 700;
