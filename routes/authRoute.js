@@ -9,7 +9,8 @@ import {
     // getAllOrdersController,
     // orderStatusController,
 } from "../controllers/authController.js";
-// import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
+// eslint-disable-next-line no-unused-vars
+import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
 
 //router object
 const router = express.Router();
@@ -22,15 +23,15 @@ router.post("/register", registerController);
 router.post("/login", loginController);
 
 // //Forgot Password || POST
-// router.post("/forgot-password", forgotPasswordController);
+// router.post("/forgot-password", forgo tPasswordController);
 
 // //test routes
 // router.get("/test", requireSignIn, isAdmin, testController);
 
-// //protected User route auth
-// router.get("/user-auth", requireSignIn, (req, res) => {
-//     res.status(200).send({ ok: true });
-// });
+//protected User route auth
+router.get("/user-auth", requireSignIn, (req, res) => {
+    res.status(200).send({ ok: true });
+});
 // //protected Admin route auth
 // router.get("/admin-auth", requireSignIn, isAdmin, (req, res) => {
 //     res.status(200).send({ ok: true });
