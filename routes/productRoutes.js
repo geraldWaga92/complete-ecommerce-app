@@ -5,7 +5,7 @@ import {
   createProductController,
   // deleteProductController,
   getProductController,
-  // getSingleProductController,
+  getSingleProductController,
   // productCategoryController,
   // productCountController,
   // productFiltersController,
@@ -41,7 +41,7 @@ router.post(
 router.get("/get-product", getProductController);
 
 //single product
-// router.get("/get-product/:slug", getSingleProductController);
+router.get("/get-product/:slug", getSingleProductController);
 
 //get photo
 // router.get("/product-photo/:pid", productPhotoController);
