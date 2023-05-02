@@ -6,7 +6,6 @@ import axios from "axios";
 import CategoryForm from "../../components/Form/CategoryForm";
 import { Modal } from "antd";
 
-
 const CreateCategory = () => {
   const [categories, setCategories] = useState([]);
   const [name, setName] = useState("");
@@ -33,7 +32,7 @@ const CreateCategory = () => {
     }
   };
 
-  //get all cat
+  //get all category
   const getAllCategory = async () => {
     try {
       const { data } = await axios.get("/api/v1/category/get-category");
@@ -42,7 +41,7 @@ const CreateCategory = () => {
       }
     } catch (error) {
       console.log(error);
-      toast.error("Something wwent wrong in getting catgeory");
+      toast.error("Something went wrong in getting category");
     }
   };
 
@@ -113,10 +112,10 @@ const CreateCategory = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {categories?.map((c) => (
-                    <>
+                  {categories?.map((c, i) => (
+                    <React.Fragment key={i}>
                       <tr>
-                        <td key={c._id}>{c.name}</td>
+                        <td>{c.name}</td>
                         <td>
                           <button
                             className="btn btn-primary ms-2"
@@ -138,7 +137,7 @@ const CreateCategory = () => {
                           </button>
                         </td>
                       </tr>
-                    </>
+                    </React.Fragment>
                   ))}
                 </tbody>
               </table>
@@ -146,7 +145,7 @@ const CreateCategory = () => {
             <Modal
               onCancel={() => setVisible(false)}
               footer={null}
-              visible={visible}
+              open={visible}
             >
               <CategoryForm
                 value={updatedName}
