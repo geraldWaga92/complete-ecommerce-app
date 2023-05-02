@@ -13,6 +13,7 @@ const CreateCategory = () => {
   const [selected, setSelected] = useState(null);
   const [updatedName, setUpdatedName] = useState("");
 
+
   //handle Form
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -71,10 +72,11 @@ const CreateCategory = () => {
     }
   };
   //delete category
-  const handleDelete = async (pId) => {
+  const handleDelete = async (pid) => {
     try {
       const { data } = await axios.delete(
-        `/api/v1/category/delete-category/${pId}`
+        `/api/v1/category/delete-category/${pid}`,
+
       );
       if (data.success) {
         toast.success(`category is deleted`);
