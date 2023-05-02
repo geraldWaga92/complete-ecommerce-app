@@ -5,7 +5,7 @@ import {
   createCategoryController,
   // deleteCategoryCOntroller,
   // singleCategoryController,
-  // updateCategoryController,
+  updateCategoryController,
 } from "./../controllers/categoryController.js";
 
 const router = express.Router();
@@ -19,13 +19,13 @@ router.post(
   createCategoryController
 );
 
-//update category
-// router.put(
-//   "/update-category/:id",
-//   requireSignIn,
-//   isAdmin,
-//   updateCategoryController
-// );
+// update category
+router.put(
+  "/update-category/:id",
+  requireSignIn,
+  isAdmin,
+  updateCategoryController
+);
 
 //getALl category
 // router.get("/get-category", categoryControlller);
