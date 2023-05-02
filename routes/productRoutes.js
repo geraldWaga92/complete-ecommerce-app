@@ -13,7 +13,7 @@ import {
   productPhotoController,
   // realtedProductController,
   // searchProductController,
-  // updateProductController,
+  updateProductController,
 } from "../controllers/productController.js";
 import { isAdmin, requireSignIn } from "../middlewares/authMiddleware.js";
 import formidable from "express-formidable";
@@ -28,14 +28,15 @@ router.post(
   formidable(),
   createProductController
 );
-//routes
-// router.put(
-//   "/update-product/:pid",
-//   requireSignIn,
-//   isAdmin,
-//   formidable(),
-//   updateProductController
-// );
+
+// routes
+router.put(
+  "/update-product/:pid",
+  requireSignIn,
+  isAdmin,
+  formidable(),
+  updateProductController
+);
 
 //get products
 router.get("/get-product", getProductController);
