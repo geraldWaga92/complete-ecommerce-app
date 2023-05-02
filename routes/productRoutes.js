@@ -3,7 +3,7 @@ import {
   // brainTreePaymentController,
   // braintreeTokenController,
   createProductController,
-  // deleteProductController,
+  deleteProductController,
   getProductController,
   getSingleProductController,
   // productCategoryController,
@@ -47,7 +47,7 @@ router.get("/get-product/:slug", getSingleProductController);
 router.get("/product-photo/:pid", productPhotoController);
 
 //delete rproduct
-// router.delete("/delete-product/:pid", deleteProductController);
+router.delete("/delete-product/:pid", deleteProductController);
 
 //filter product
 // router.post("/product-filters", productFiltersController);
