@@ -5,6 +5,7 @@ import { useAuth } from "../../context/auth";
 import toast from "react-hot-toast";
 import SearchInput from "../Form/SearchInput";
 import useCategory from "../../hooks/useCategory";
+// import "../../index.css";
 
 const Header = () => {
     const [auth, setAuth] = useAuth();
@@ -36,23 +37,20 @@ const Header = () => {
                         <span className="navbar-toggler-icon" />
                     </button>
                     <div className="collapse navbar-collapse" id="navbarTogglerDemo01">
-                        <NavLink className="navbar-brand" to="/">
+                        <Link to="/">
                             <img
                                 src={Logo}
                                 className="img-fluid"
                                 width="150"
                                 height="50"
-                                alt="..."
+                                alt=""
                             />
-                        </NavLink>
+                        </Link>
+
                         <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
                             <SearchInput />
                             <li className="nav-item">
-                                <NavLink
-                                    className="nav-link isactive"
-                                    aria-current="page"
-                                    to="/"
-                                >
+                                <NavLink className="nav-link" aria-current="page" to="/">
                                     Home
                                 </NavLink>
                             </li>
@@ -82,7 +80,6 @@ const Header = () => {
                                     ))}
                                 </ul>
                             </li>
-
 
                             {!auth.user ? (
                                 <>
