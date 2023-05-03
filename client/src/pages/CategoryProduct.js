@@ -29,10 +29,10 @@ const CategoryProduct = () => {
     <Layout>
       <div className="container mt-3 category">
         <h4 className="text-center">Category - {category?.name}</h4>
-        <h6 className="text-center">{products?.length} result found </h6>
+        <h6 className="text-center">{products?.length} results found </h6>
         <div className="row">
-          <div className="col-md-9 offset-1">
-            <div className="d-flex flex-wrap">
+          <div className="col-md-12">
+            <div className="d-flex justify-content-center flex-wrap">
               {products?.map((p) => (
                 <div className="card m-2" key={p._id}>
                   <img
