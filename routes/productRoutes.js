@@ -11,7 +11,7 @@ import {
   productFiltersController,
   productListController,
   productPhotoController,
-  // realtedProductController,
+  realtedProductController,
   searchProductController,
   updateProductController,
 } from "../controllers/productController.js";
@@ -63,7 +63,7 @@ router.get("/product-list/:page", productListController);
 router.get("/search/:keyword", searchProductController);
 
 //similar product
-// router.get("/related-product/:pid/:cid", realtedProductController);
+router.get("/related-product/:pid/:cid", realtedProductController);
 
 //category wise product
 // router.get("/product-category/:slug", productCategoryController);
