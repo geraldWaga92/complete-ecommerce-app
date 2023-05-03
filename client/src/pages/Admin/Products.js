@@ -38,10 +38,10 @@ const Products = () => {
                 to={`/dashboard/admin/product/${p.slug}`}
                 className="product-link"
               >
-                <div className="card m-2" style={{ maxWidth: "15rem", maxHeight: "20rem" }}>
+                <div className="card m-2" style={{ maxWidth: "14rem", maxHeight: "18rem" }}>
                   <img
                     src={`/api/v1/product/product-photo/${p._id}`}
-                    className="object-fit-cover border rounded"
+                    className="object-fit-fill border rounded"
                     alt={p.name}
                   />
                   <div className="card-body">
