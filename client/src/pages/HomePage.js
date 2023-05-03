@@ -94,27 +94,27 @@ const HomePage = () => {
         setChecked(all);
     };
 
-    //   useEffect(() => {
-    //     if (!checked.length || !radio.length) getAllProducts();
-    //   }, [checked.length, getAllProducts, radio.length]);
+    useEffect(() => {
+        if (!checked.length || !radio.length) getAllProducts();
+    }, [checked.length, radio.length]);
 
-    //   useEffect(() => {
-    //     if (checked.length || radio.length) filterProduct();
-    //   // eslint-disable-next-line react-hooks/exhaustive-deps
-    //   }, [checked, radio]);
+    useEffect(() => {
+        //get filterd product
+        const filterProduct = async () => {
+            try {
+                const { data } = await axios.post("/api/v1/product/product-filters", {
+                    checked,
+                    radio,
+                });
+                setProducts(data?.products);
+            } catch (error) {
+                console.log(error);
+            }
+        };
 
-    //get filterd product
-    //   const filterProduct = async () => {
-    //     try {
-    //       const { data } = await axios.post("/api/v1/product/product-filters", {
-    //         checked,
-    //         radio,
-    //       });
-    //       setProducts(data?.products);
-    //     } catch (error) {
-    //       console.log(error);
-    //     }
-    //   };
+        if (checked.length || radio.length) filterProduct();
+    }, [checked, radio]);
+
     return (
         <Layout title={"ALl Products - Best offers "}>
             {/* banner image */}
