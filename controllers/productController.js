@@ -1,6 +1,7 @@
+// import React from "react";
 import productModel from "../models/productModel.js";
 import categoryModel from "../models/categoryModel.js";
-// import orderModel from "../models/orderModel.js";
+import orderModel from "../models/orderModel.js";
 
 import fs from "fs";
 import slugify from "slugify";
@@ -63,7 +64,6 @@ export const createProductController = async (req, res) => {
     }
 };
 
-
 //get all products
 export const getProductController = async (req, res) => {
     try {
@@ -72,7 +72,7 @@ export const getProductController = async (req, res) => {
             .populate("category")
             .select("-photo") //latest photo uploaded
             .limit(12)
-            .sort({ createdAt: -1 });//latest photo created
+            .sort({ createdAt: -1 }); //latest photo created
         res.status(200).send({
             success: true,
             countTotal: products.length,
@@ -88,7 +88,6 @@ export const getProductController = async (req, res) => {
         });
     }
 };
-
 
 // get single product
 export const getSingleProductController = async (req, res) => {
@@ -147,7 +146,6 @@ export const deleteProductController = async (req, res) => {
         });
     }
 };
-
 
 //upate product
 export const updateProductController = async (req, res) => {
@@ -239,7 +237,6 @@ export const productCountController = async (req, res) => {
     }
 };
 
-
 // product list base on page
 export const productListController = async (req, res) => {
     try {
@@ -264,7 +261,6 @@ export const productListController = async (req, res) => {
         });
     }
 };
-
 
 // search product
 export const searchProductController = async (req, res) => {
@@ -315,7 +311,6 @@ export const realtedProductController = async (req, res) => {
     }
 };
 
-
 // get product by category
 export const productCategoryController = async (req, res) => {
     try {
@@ -336,7 +331,6 @@ export const productCategoryController = async (req, res) => {
     }
 };
 
-
 //payment gateway api
 //token
 export const braintreeTokenController = async (req, res) => {
@@ -348,6 +342,44 @@ export const braintreeTokenController = async (req, res) => {
                 res.send(response);
             }
         });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+//payment
+export const brainTreePaymentController = async (req, res) => {
+    try {
+        const { nonce, cart } = req.body;
+        let total = 0;
+        cart.map((c) => {
+
+            total += c.price
+
+        });
+        // eslint-disable-next-line no-unused-vars
+        let newTransaction = gateway.transaction.sale(
+            {
+                amount: total,
+                paymentMethodNonce: nonce,
+                options: {
+                    submitForSettlement: true,
+                },
+            },
+            function (error, result) {
+                if (result) {
+                    // eslint-disable-next-line no-unused-vars
+                    const order = new orderModel({
+                        products: cart,
+                        payment: result,
+                        buyer: req.user._id,
+                    }).save();
+                    res.json({ ok: true });
+                } else {
+                    res.status(500).send(error);
+                }
+            }
+        );
     } catch (error) {
         console.log(error);
     }
