@@ -33,7 +33,7 @@ const Orders = () => {
                         {orders?.map((o, i) => {
                             return (
                                 <React.Fragment key={i}>
-                                    <div className="border shadow" key={i}>
+                                    <div className="border shadow" >
                                         <table className="table">
                                             <thead>
                                                 <tr>
@@ -64,7 +64,7 @@ const Orders = () => {
                                                             src={`/api/v1/product/product-photo/${p._id}`}
                                                             className="card-img-top"
                                                             alt={p.name}
-                                                            width="100px"
+                                                            width="50px"
                                                             height={"100px"}
                                                         />
                                                     </div>

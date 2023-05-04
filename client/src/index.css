@@ -141,7 +141,9 @@ img {
 }
 
 /* .card-img-top {
-  background-size:contain;
+  background-size:cover;
+  width: 60%;
+  height: 60%;
 } */
 
 .cat-btn {
