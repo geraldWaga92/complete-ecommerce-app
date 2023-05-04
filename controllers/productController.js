@@ -71,7 +71,6 @@ export const getProductController = async (req, res) => {
             .find({})
             .populate("category")
             .select("-photo") //latest photo uploaded
-            .limit(12)
             .sort({ createdAt: -1 }); //latest photo created
         res.status(200).send({
             success: true,
