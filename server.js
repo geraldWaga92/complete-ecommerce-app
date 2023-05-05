@@ -34,7 +34,7 @@ app.use("/api/v1/product", productRoutes);
 
 
 // rest api
-app.get("*", (req, res) => {
+app.use("*", function (req, res) {
     res.sendFile(path.join(__dirname, "./client/build/index.html"))
 })
 
